@@ -47,6 +47,7 @@ import ProtectedRoute from "./router/ProtectedRoute";
 import { ROLE } from "./utils/interfaces";
 import AssignReviewer from "./pages/Assignments/AssignReviewer";
 import StudentTasks from "./pages/StudentTasks/StudentTasks";
+import StudentTaskDetail from "./pages/StudentTasks/StudentTaskDetail";
 import StudentTeams from "./pages/Student Teams/StudentTeamView";
 import StudentTeamView from "./pages/Student Teams/StudentTeamView";
 import NewTeammateAdvertisement from './pages/Student Teams/NewTeammateAdvertisement';
@@ -298,8 +299,8 @@ function App() {
           element: <ProtectedRoute element={<StudentTasks />} />,
         },
         {
-          path: "student_tasks/:assignmentId",
-          element: <ProtectedRoute element={<StudentTasks />} />,
+          path: "student_tasks/:participantId",
+          element: <ProtectedRoute element={<StudentTaskDetail />} />,
         },
         {
           path: "assignments/:id/review",
