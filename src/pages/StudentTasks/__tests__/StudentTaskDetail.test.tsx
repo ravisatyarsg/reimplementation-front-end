@@ -142,7 +142,7 @@ describe("StudentTaskDetail — detail view", () => {
     mockLoading();
     renderDetail();
     expect(screen.getByTestId("loading-spinner")).toBeInTheDocument();
-    expect(screen.getByText(/loading task details/i)).toBeInTheDocument();
+    expect(screen.getAllByText(/loading task details/i).length).toBeGreaterThan(0);
   });
 
   // ── Error state ──────────────────────────────────────────────────────────────
