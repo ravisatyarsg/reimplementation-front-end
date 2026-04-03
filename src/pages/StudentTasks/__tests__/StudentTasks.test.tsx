@@ -137,7 +137,7 @@ describe("StudentTasks — list view", () => {
   it("renders the page heading", () => {
     mockWithData();
     renderWithProviders(<StudentTasks />);
-    expect(screen.getByRole("heading", { name: /student tasks/i })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /assignments/i })).toBeInTheDocument();
   });
 
   it("renders a row for each task returned by the API", () => {
@@ -173,11 +173,11 @@ describe("StudentTasks — list view", () => {
     expect(screen.getByText("N/A")).toBeInTheDocument();
   });
 
-  it("renders a 'View Details' button for each task", () => {
+  it("renders assignment name links for each task", () => {
     mockWithData();
     renderWithProviders(<StudentTasks />);
-    const buttons = screen.getAllByRole("button", { name: /view details/i });
-    expect(buttons).toHaveLength(2);
+    const links = screen.getAllByRole("button", { name: /oss project|program 3/i });
+    expect(links).toHaveLength(2);
   });
 
   // ── Loading state ────────────────────────────────────────────────────────────
@@ -226,10 +226,10 @@ describe("StudentTasks — list view", () => {
 
   // ── Navigation ───────────────────────────────────────────────────────────────
 
-  it("navigates to the detail page when 'View Details' is clicked", async () => {
+  it("navigates to the detail page when the assignment name is clicked", async () => {
     mockWithData([sampleTask]);
     renderWithProviders(<StudentTasks />);
-    const button = screen.getByRole("button", { name: /view details/i });
+    const button = screen.getByRole("button", { name: "OSS Project" });
     await userEvent.click(button);
     expect(mockNavigate).toHaveBeenCalledWith("/student_tasks/10");
   });
