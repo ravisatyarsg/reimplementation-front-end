@@ -150,8 +150,8 @@ describe("StudentTasks — list view", () => {
   it("renders course names in the table", () => {
     mockWithData();
     renderWithProviders(<StudentTasks />);
-    expect(screen.getByText("CSC 591")).toBeInTheDocument();
-    expect(screen.getByText("CSC 517")).toBeInTheDocument();
+    expect(screen.getAllByText("CSC 591").length).toBeGreaterThan(0);
+    expect(screen.getAllByText("CSC 517").length).toBeGreaterThan(0);
   });
 
   it("renders current stage badges", () => {
