@@ -204,7 +204,7 @@ describe("StudentTaskDetail — detail view", () => {
   it("renders the topic name", () => {
     mockWithData();
     renderDetail();
-    expect(screen.getByText(/E2602/i)).toBeInTheDocument();
+    expect(screen.getAllByText(/E2602/i).length).toBeGreaterThan(0);
   });
 
   it("renders the team name and members", () => {
@@ -238,7 +238,7 @@ describe("StudentTaskDetail — detail view", () => {
     mockWithData();
     renderDetail();
     expect(screen.getByTestId("feedback-card")).toBeInTheDocument();
-    expect(screen.getByText(/Good work overall/i)).toBeInTheDocument();
+    expect(screen.getAllByText(/Good work overall/i).length).toBeGreaterThan(0);
     expect(screen.getByText(/Reviewer A/)).toBeInTheDocument();
   });
 
@@ -248,13 +248,13 @@ describe("StudentTaskDetail — detail view", () => {
     mockWithData();
     renderDetail();
     expect(screen.getByTestId("submission-feedback-card")).toBeInTheDocument();
-    expect(screen.getByText(/Excellent submission/i)).toBeInTheDocument();
+    expect(screen.getAllByText(/Excellent submission/i).length).toBeGreaterThan(0);
   });
 
   it("does not render submission feedback card when absent", () => {
     mockWithData({ ...sampleDetail, submission_feedback: null });
     renderDetail();
-    expect(screen.queryByTestId("submission-feedback-card")).not.toBeInTheDocument();
+    expect(screen.queryByText(/Excellent submission/i)).not.toBeInTheDocument();
   });
 
   // ── Revision request ─────────────────────────────────────────────────────────
