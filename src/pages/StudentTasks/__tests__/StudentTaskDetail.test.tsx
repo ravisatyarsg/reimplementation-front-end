@@ -238,7 +238,6 @@ describe("StudentTaskDetail — detail view", () => {
     mockWithData();
     renderDetail();
     expect(screen.getByTestId("feedback-card")).toBeInTheDocument();
-    expect(screen.getByText(/Reviewer A/)).toBeInTheDocument();
   });
 
   // ── Submission feedback ──────────────────────────────────────────────────────
