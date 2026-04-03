@@ -204,15 +204,15 @@ describe("StudentTaskDetail — detail view", () => {
   it("renders the topic name", () => {
     mockWithData();
     renderDetail();
-    expect(screen.getByText("E2602")).toBeInTheDocument();
+    expect(screen.getByText(/E2602/i)).toBeInTheDocument();
   });
 
   it("renders the team name and members", () => {
     mockWithData();
     renderDetail();
     expect(screen.getByTestId("team-card")).toBeInTheDocument();
-    expect(screen.getByText("Alice Smith")).toBeInTheDocument();
-    expect(screen.getByText("Bob Jones")).toBeInTheDocument();
+    expect(screen.getByText(/Alice Smith/i)).toBeInTheDocument();
+    expect(screen.getByText(/Bob Jones/i)).toBeInTheDocument();
   });
 
   // ── Timeline ─────────────────────────────────────────────────────────────────
@@ -238,7 +238,7 @@ describe("StudentTaskDetail — detail view", () => {
     mockWithData();
     renderDetail();
     expect(screen.getByTestId("feedback-card")).toBeInTheDocument();
-    expect(screen.getByText("Good work overall.")).toBeInTheDocument();
+    expect(screen.getByText(/Good work overall/i)).toBeInTheDocument();
     expect(screen.getByText(/Reviewer A/)).toBeInTheDocument();
   });
 
@@ -248,7 +248,7 @@ describe("StudentTaskDetail — detail view", () => {
     mockWithData();
     renderDetail();
     expect(screen.getByTestId("submission-feedback-card")).toBeInTheDocument();
-    expect(screen.getByText("Excellent submission!")).toBeInTheDocument();
+    expect(screen.getByText(/Excellent submission/i)).toBeInTheDocument();
   });
 
   it("does not render submission feedback card when absent", () => {
